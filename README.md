@@ -8,6 +8,8 @@
 - [ ] 归并排序 MergeSort
 - [x] 原地快速排序 inPlaceQuicksort
 - [x] 非原地快速排序 nonInPlaceQuicksort
+- [ ] 三路快排 QuickSort3way
+- [ ] 双轴快排 QuickSortDualPivot
 - [ ] 希尔排序 Shellsort
 - [ ] 计数排序 CountingSort
 - [ ] 基数排序 RadixSort
