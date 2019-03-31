@@ -6,10 +6,11 @@
 - [ ] 插入排序 InsertionSort
 - [ ] 堆排序 HeapSort
 - [ ] 归并排序 MergeSort
-- [x] 原地快速排序 inPlaceQuicksort
-- [x] 非原地快速排序 nonInPlaceQuicksort
+- [x] 基本快速排序 Quicksort
+- [x] 单基准单向快排 QuickSortSinglePivot
+- [x] 单基准双向快排 QuickSortSinglePivot2
 - [ ] 三路快排 QuickSort3way
-- [ ] 双轴快排 QuickSortDualPivot
+- [ ] 双基准快排 QuickSortDualPivot
 - [ ] 希尔排序 Shellsort
 - [ ] 计数排序 CountingSort
 - [ ] 基数排序 RadixSort
