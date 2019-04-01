@@ -8,7 +8,7 @@
  * @param {boolean} isRecursive
  * @return {*[]} - 排序后数组
  */
-function quickSortInPlace(orginArray = [], leftIndex = 0, rightIndex = orginArray.length - 1, isRecursive = false) {
+function quickSortSinglePivot(orginArray = [], leftIndex = 0, rightIndex = orginArray.length - 1, isRecursive = false) {
     // 第一次调用时创建副本，在副本上排序
     const array = isRecursive ? orginArray : [...orginArray]
 
@@ -46,12 +46,12 @@ function quickSortInPlace(orginArray = [], leftIndex = 0, rightIndex = orginArra
         // 划分位置
         const partitionIndex = partition(leftIndex, rightIndex)
         // 递归排序
-        quickSortInPlace(array, leftIndex, partitionIndex - 1, true)
-        quickSortInPlace(array, partitionIndex + 1, rightIndex, true)
+        quickSortSinglePivot(array, leftIndex, partitionIndex - 1, true)
+        quickSortSinglePivot(array, partitionIndex + 1, rightIndex, true)
     }
 
     // 返回排序完的数组副本
     return array
 }
 
-quickSortInPlace( [5, 3, 7, 4, 1, 9, 8, 6, 2]) // =>[1, 2, 3, 4, 5, 6, 7, 8, 9]
+quickSortSinglePivot( [5, 3, 7, 4, 1, 9, 8, 6, 2]) // =>[1, 2, 3, 4, 5, 6, 7, 8, 9]
