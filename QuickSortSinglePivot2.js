@@ -26,22 +26,26 @@ function quickSortSinglePivot2(array = [], leftIndex = 0, rightIndex = array.len
         const partitionIndex = lowIndex
         
         // 左侧起始位置
-        let leftIndex = lowIndex + 1
+        let leftIndex = lowIndex
         
         // 右侧起始位置
         let rightIndex = highIndex
 
         while(leftIndex < rightIndex) {
-          for (; leftIndex < rightIndex; leftIndex++) {
+          for (; leftIndex < highIndex; leftIndex++) {
             if (array[leftIndex] > pivot) {
               break;
             }
           }
           
-          for (; leftIndex < rightIndex; rightIndex--) {
+          for (; lowIndex < rightIndex; rightIndex--) {
             if (array[rightIndex] < pivot) {
               break;
             }
+          }
+
+          if (leftIndex >= rightIndex) {
+              break
           }
           
           swap(leftIndex, rightIndex)
