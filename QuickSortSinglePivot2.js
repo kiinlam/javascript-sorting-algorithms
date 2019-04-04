@@ -9,59 +9,68 @@
  */
 function quickSortSinglePivot2(array = [], leftIndex = 0, rightIndex = array.length - 1) {
 
-    // 划分数组
-    function partition(lowIndex, highIndex) {
-        // 交换数组元素
-        function swap(left, right) {
-            if (left !== right) {
-              [array[left], array[right]] = [array[right], array[left]]
-            }
-        }
-
-        // 用于比较的基准值
-        // 最终小于基准值的元素排在左边，大于等于基准值的元素排在右边
-        const pivot = array[lowIndex]
-
-        // 设置划分位置初始值
-        const partitionIndex = lowIndex
-
-        while(true) {
-          for (; lowIndex <= highIndex; lowIndex++) {
-            if (array[lowIndex] > pivot) {
-              break;
-            }
-          }
-          
-          for (; lowIndex <= highIndex; highIndex--) {
-            if (array[highIndex] < pivot) {
-              break;
-            }
-          }
-
-          if (lowIndex >= highIndex) {
-              break
-          }
-          
-          swap(lowIndex++, highIndex--)
-        }
-
-        // 将划分位置的元素与基准值交换
-        swap(partitionIndex, highIndex)
-
-        return highIndex
+  // 划分数组
+  function partition(lowIndex, highIndex) {
+    // 交换数组元素
+    function swap(left, right) {
+      if (left !== right) {
+        [array[left], array[right]] = [array[right], array[left]]
+      }
     }
 
-    // 数组有两个或以上元素才需要排序
-    if (leftIndex < rightIndex) {
-        // 划分位置
-        const partitionIndex = partition(leftIndex, rightIndex)
-        // 递归排序
-        quickSortSinglePivot2(array, leftIndex, partitionIndex - 1)
-        quickSortSinglePivot2(array, partitionIndex + 1, rightIndex)
+    // 用于比较的基准值
+    // 最终小于基准值的元素排在左边，大于等于基准值的元素排在右边
+    const pivot = array[lowIndex]
+
+    // 设置划分位置初始值，index = 0
+    const partitionIndex = lowIndex
+
+    // 左游标起始位置，index = 1
+    lowIndex++
+
+    while(true) {
+
+      // 从左往右查找比基准值大的元素，直到与右游标重合
+      for (; lowIndex <= highIndex; lowIndex++) {
+        if (array[lowIndex] > pivot) {
+          break;
+        }
+      }
+
+      // 从右往左查找比基准值小的元素，直到与左游标重合
+      for (; lowIndex <= highIndex; highIndex--) {
+        if (array[highIndex] < pivot) {
+          break;
+        }
+      }
+
+      // 如果两侧游标已经相遇或越过，则不需要交换元素
+      if (lowIndex >= highIndex) {
+        break
+      }
+
+      // 左游标大于基准值的元素，与右游标小于基准值的元素，进行交换
+      swap(lowIndex++, highIndex--)
     }
 
-    // 返回排序完的数组
-    return array
+    // 完成一轮扫描后，将划分位置的元素与基准值交换
+    // 此时highIndex所在位置的元素小于基准值
+    swap(partitionIndex, highIndex)
+
+    return highIndex
+  }
+
+  // 数组有两个或以上元素才需要排序
+  if (leftIndex < rightIndex) {
+    // 划分位置
+    const partitionIndex = partition(leftIndex, rightIndex)
+    // 递归排序
+    quickSortSinglePivot2(array, leftIndex, partitionIndex - 1)
+    quickSortSinglePivot2(array, partitionIndex + 1, rightIndex)
+  }
+
+  // 返回排序后的数组
+  return array
 }
 
 quickSortSinglePivot2([5, 3, 7, 4, 1, 9, 8, 6, 2]) // =>[1, 2, 3, 4, 5, 6, 7, 8, 9]
