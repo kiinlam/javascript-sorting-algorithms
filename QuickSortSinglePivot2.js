@@ -26,13 +26,13 @@ function quickSortSinglePivot2(array = [], leftIndex = 0, rightIndex = array.len
         const partitionIndex = lowIndex
 
         while(true) {
-          for (; lowIndex < highIndex + 1; lowIndex++) {
+          for (; lowIndex <= highIndex; lowIndex++) {
             if (array[lowIndex] > pivot) {
               break;
             }
           }
           
-          for (; lowIndex - 1 < highIndex; highIndex--) {
+          for (; lowIndex <= highIndex; highIndex--) {
             if (array[highIndex] < pivot) {
               break;
             }
