@@ -56,11 +56,11 @@ function quickSortSinglePivot2(array = [], leftIndex = 0, rightIndex = array.len
         // 划分位置
         const partitionIndex = partition(leftIndex, rightIndex)
         // 递归排序
-        quickSortSinglePivot2(array, leftIndex, partitionIndex - 1, true)
-        quickSortSinglePivot2(array, partitionIndex + 1, rightIndex, true)
+        quickSortSinglePivot2(array, leftIndex, partitionIndex - 1)
+        quickSortSinglePivot2(array, partitionIndex + 1, rightIndex)
     }
 
-    // 返回排序完的数组副本
+    // 返回排序完的数组
     return array
 }
 
