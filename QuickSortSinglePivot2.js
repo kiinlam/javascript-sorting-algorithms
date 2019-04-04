@@ -24,37 +24,31 @@ function quickSortSinglePivot2(array = [], leftIndex = 0, rightIndex = array.len
 
         // 设置划分位置初始值
         const partitionIndex = lowIndex
-        
-        // 左侧起始位置
-        let leftIndex = lowIndex
-        
-        // 右侧起始位置
-        let rightIndex = highIndex
 
-        while(leftIndex < rightIndex) {
-          for (; leftIndex < highIndex; leftIndex++) {
-            if (array[leftIndex] > pivot) {
+        while(true) {
+          for (; lowIndex < highIndex + 1; lowIndex++) {
+            if (array[lowIndex] > pivot) {
               break;
             }
           }
           
-          for (; lowIndex < rightIndex; rightIndex--) {
-            if (array[rightIndex] < pivot) {
+          for (; lowIndex - 1 < highIndex; highIndex--) {
+            if (array[highIndex] < pivot) {
               break;
             }
           }
 
-          if (leftIndex >= rightIndex) {
+          if (lowIndex >= highIndex) {
               break
           }
           
-          swap(leftIndex, rightIndex)
+          swap(lowIndex++, highIndex--)
         }
 
         // 将划分位置的元素与基准值交换
-        swap(partitionIndex, rightIndex)
+        swap(partitionIndex, highIndex)
 
-        return rightIndex
+        return highIndex
     }
 
     // 数组有两个或以上元素才需要排序
@@ -70,4 +64,4 @@ function quickSortSinglePivot2(array = [], leftIndex = 0, rightIndex = array.len
     return array
 }
 
-quickSortSinglePivot2( [5, 3, 7, 4, 1, 9, 8, 6, 2]) // =>[1, 2, 3, 4, 5, 6, 7, 8, 9]
+quickSortSinglePivot2([5, 3, 7, 4, 1, 9, 8, 6, 2]) // =>[1, 2, 3, 4, 5, 6, 7, 8, 9]
