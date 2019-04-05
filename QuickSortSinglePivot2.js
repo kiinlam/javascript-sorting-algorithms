@@ -1,6 +1,5 @@
-// 单基准双向快排
-
-/** 原地快速排序避免占用额外内存，直接在数组上进行操作
+/** 单基准双向快排
+ * 特征：一个基准值，两个从两侧往中间靠拢的游标，一个固定的分区位
  *
  * @param {*[]} array - 待排序数组
  * @param {number} leftIndex
@@ -22,10 +21,10 @@ function quickSortSinglePivot2(array = [], leftIndex = 0, rightIndex = array.len
     // 最终小于基准值的元素排在左边，大于等于基准值的元素排在右边
     const pivot = array[lowIndex]
 
-    // 设置划分位置初始值，index = 0
+    // 记录划分位置初始值
     const partitionIndex = lowIndex
 
-    // 左游标起始位置，index = 1
+    // 左游标起始位置
     lowIndex++
 
     while(true) {
