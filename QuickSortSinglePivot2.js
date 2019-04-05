@@ -1,6 +1,6 @@
 /** 单基准双向快排
  * 特征：一个基准值，两个从两侧往中间靠拢的游标，一个固定的分区位
- *
+ * 对于已经排好序的数组n，操作次数为1+2+3+...+(n-3)+(n-2)+(n-1)+n，时间复杂度O(n^2)
  * @param {*[]} array - 待排序数组
  * @param {number} leftIndex
  * @param {number} rightIndex
