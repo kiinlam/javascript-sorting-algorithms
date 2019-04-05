@@ -1,18 +1,15 @@
-// 单基准单向快排
-
-/** 原地快速排序避免占用额外内存，直接在数组上进行操作
+/** 单基准单向快排
+ * 特征：一个基准值，一个从左往右扫描的游标，一个步步前进的分区位
  *
- * @param {*[]} originalArray - 待排序数组
+ * @param {*[]} array - 待排序数组
  * @param {number} leftIndex
  * @param {number} rightIndex
  * @param {boolean} isRecursive
  * @return {*[]} - 排序后数组
  */
-function quickSortSinglePivot(orginArray = [], leftIndex = 0, rightIndex = orginArray.length - 1, isRecursive = false) {
-    // 第一次调用时创建副本，在副本上排序
-    const array = isRecursive ? orginArray : [...orginArray]
+function quickSortSinglePivot(array = [], leftIndex = 0, rightIndex = array.length - 1, isRecursive = false) {
 
-    // 划分数组
+    // 分区数组
     function partition(lowIndex, highIndex) {
         // 交换数组元素
         function swap(left, right) {
@@ -25,9 +22,9 @@ function quickSortSinglePivot(orginArray = [], leftIndex = 0, rightIndex = orgin
         // 最终小于基准值的元素排在左边，大于等于基准值的元素排在右边
         const pivot = array[highIndex]
 
-        // 设置划分位置初始值
+        // 设置分区位置初始值
         let partitionIndex = lowIndex
-        // 逐个于基准值比较，小于基准值时，将元素与划分位置的元素交换，同时划分位置往右移
+        // 逐个于基准值比较，小于基准值时，将元素与分区位置的元素交换，同时分区位置往右移
         for (let currentIndex = lowIndex; currentIndex < highIndex; currentIndex++) {
             if (array[currentIndex] < pivot) {
                 swap(partitionIndex, currentIndex)
@@ -35,7 +32,7 @@ function quickSortSinglePivot(orginArray = [], leftIndex = 0, rightIndex = orgin
             }
         }
 
-        // 将划分位置的元素与基准值交换
+        // 将分区位置的元素与基准值交换
         swap(partitionIndex, highIndex)
 
         return partitionIndex
@@ -43,7 +40,7 @@ function quickSortSinglePivot(orginArray = [], leftIndex = 0, rightIndex = orgin
 
     // 数组有两个或以上元素才需要排序
     if (leftIndex < rightIndex) {
-        // 划分位置
+        // 分区位置
         const partitionIndex = partition(leftIndex, rightIndex)
         // 递归排序
         quickSortSinglePivot(array, leftIndex, partitionIndex - 1, true)
