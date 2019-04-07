@@ -2,12 +2,11 @@
  * 特征：一个基准值，一个从左往右扫描的游标，一个步步前进的分区位
  *
  * @param {*[]} array - 待排序数组
- * @param {number} leftIndex
- * @param {number} rightIndex
- * @param {boolean} isRecursive
+ * @param {number} leftIndex - 左侧开始下标
+ * @param {number} rightIndex - 右侧结束下标
  * @return {*[]} - 排序后数组
  */
-function quickSortSinglePivot(array = [], leftIndex = 0, rightIndex = array.length - 1, isRecursive = false) {
+function quickSortSinglePivot(array = [], leftIndex = 0, rightIndex = array.length - 1) {
 
     // 分区数组
     function partition(lowIndex, highIndex) {
@@ -43,8 +42,8 @@ function quickSortSinglePivot(array = [], leftIndex = 0, rightIndex = array.leng
         // 分区位置
         const partitionIndex = partition(leftIndex, rightIndex)
         // 递归排序
-        quickSortSinglePivot(array, leftIndex, partitionIndex - 1, true)
-        quickSortSinglePivot(array, partitionIndex + 1, rightIndex, true)
+        quickSortSinglePivot(array, leftIndex, partitionIndex - 1)
+        quickSortSinglePivot(array, partitionIndex + 1, rightIndex)
     }
 
     // 返回排序完的数组副本
