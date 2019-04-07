@@ -1,10 +1,10 @@
 /** 单基准双向快排
  * 特征：一个基准值，两个从两侧往中间靠拢的游标，一个固定的分区位
- * 理想情况下，每次都能对半分时，时间复杂度为O(logn)
+ * 理想情况下，每次都能对半分时，时间复杂度为O(nlogn)
  * 对于已经排好序的数组n，操作次数为1+2+3+...+(n-3)+(n-2)+(n-1)+n，时间复杂度O(n^2)
  * @param {*[]} array - 待排序数组
- * @param {number} leftIndex
- * @param {number} rightIndex
+ * @param {number} leftIndex - 左侧开始下标
+ * @param {number} rightIndex - 右侧结束下标
  * @return {*[]} - 排序后数组
  */
 function quickSortSinglePivot2(array = [], leftIndex = 0, rightIndex = array.length - 1) {
