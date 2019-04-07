@@ -9,7 +9,7 @@
 - [x] 基本快速排序 Quicksort
 - [x] 单基准单向快排 QuickSortSinglePivot
 - [x] 单基准双向快排 QuickSortSinglePivot2
-- [ ] 三路快排 QuickSort3way
+- [x] 三路快排 QuickSort3way
 - [ ] 双基准快排 QuickSortDualPivot
 - [ ] 希尔排序 Shellsort
 - [ ] 计数排序 CountingSort
