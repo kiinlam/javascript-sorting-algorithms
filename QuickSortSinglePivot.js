@@ -33,13 +33,13 @@ function partition(array, lowIndex, highIndex) {
     // 逐个于基准值比较，小于基准值时，将元素与分区位置的元素交换，同时分区位置往右移
     for (let currentIndex = lowIndex; currentIndex < highIndex; currentIndex++) {
         if (array[currentIndex] < pivot) {
-            swap(partitionIndex, currentIndex)
+            swap(array, partitionIndex, currentIndex)
             partitionIndex += 1
         }
     }
 
     // 将分区位置的元素与基准值交换
-    swap(partitionIndex, highIndex)
+    swap(array, partitionIndex, highIndex)
 
     return partitionIndex
 }
