@@ -8,13 +8,6 @@
  */
 function dualPivotQuickSort(array = [], leftIndex = 0, rightIndex = array.length - 1) {
 
-  // 交换数组元素
-  function swap(left, right) {
-    if (left !== right) {
-      [array[left], array[right]] = [array[right], array[left]]
-    }
-  }
-
   // 数组有两个或以上元素才需要排序
   if (leftIndex < rightIndex) {
     
@@ -61,6 +54,13 @@ function dualPivotQuickSort(array = [], leftIndex = 0, rightIndex = array.length
 
   // 返回排序后的数组
   return array
+}
+
+// 交换数组元素
+function swap(left, right) {
+  if (left !== right) {
+    [array[left], array[right]] = [array[right], array[left]]
+  }
 }
 
 dualPivotQuickSort([5, 3, 7, 4, 1, 9, 8, 6, 2]) // =>[1, 2, 3, 4, 5, 6, 7, 8, 9]
