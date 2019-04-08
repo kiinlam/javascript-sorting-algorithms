@@ -27,11 +27,11 @@ function quickSort3way(array = [], leftIndex = 0, rightIndex = array.length - 1)
       // 比基准值小时，与lt位置的元素交换，然后i、lt往右移一位
       // 比基准值大时，与gt位置的元素交换，然后gt往左移一位
       if (array[i] < pivot) {
-        swap(i, lt)
+        swap(array, i, lt)
         i++
         lt++
       } else if (array[i] > pivot) {
-        swap(i, gt)
+        swap(array, i, gt)
         gt--
       } else {
         i++
@@ -48,7 +48,7 @@ function quickSort3way(array = [], leftIndex = 0, rightIndex = array.length - 1)
 }
 
 // 交换数组元素
-function swap(left, right) {
+function swap(array, left, right) {
   if (left !== right) {
     [array[left], array[right]] = [array[right], array[left]]
   }
