@@ -13,7 +13,7 @@ function dualPivotQuickSort(array = [], leftIndex = 0, rightIndex = array.length
     
     // 确保第一个基准值小于等于第二个基准值
     if (array[leftIndex] > array[rightIndex]) {
-      swap(leftIndex, rightIndex)
+      swap(array, leftIndex, rightIndex)
     }
   
     // 用于比较的基准值
@@ -31,11 +31,11 @@ function dualPivotQuickSort(array = [], leftIndex = 0, rightIndex = array.length
       // 比基准值小时，与lt位置的元素交换，然后i、lt往右移一位
       // 比基准值大时，与gt位置的元素交换，然后gt往左移一位
       if (array[i] < pivotLeft) {
-        swap(i, lt)
+        swap(array, i, lt)
         i++
         lt++
       } else if (array[i] > pivotRight) {
-        swap(i, gt)
+        swap(array, i, gt)
         gt--
       } else {
         i++
@@ -43,8 +43,8 @@ function dualPivotQuickSort(array = [], leftIndex = 0, rightIndex = array.length
     }
     
     // 交换左侧、右侧基准值
-    swap(leftIndex, --lt)
-    swap(rightIndex, ++gt)
+    swap(array, leftIndex, --lt)
+    swap(array, rightIndex, ++gt)
     
     // 递归排序
     dualPivotQuickSort(array, leftIndex, lt - 1)
@@ -57,7 +57,7 @@ function dualPivotQuickSort(array = [], leftIndex = 0, rightIndex = array.length
 }
 
 // 交换数组元素
-function swap(left, right) {
+function swap(array, left, right) {
   if (left !== right) {
     [array[left], array[right]] = [array[right], array[left]]
   }
